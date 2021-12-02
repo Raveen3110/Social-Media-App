@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Col, Row } from 'reactstrap'
+import { Col, Row } from 'reactstrap'
 import LoginForm from './LoginForm'
 import SiginForm from './SigninForm'
 import bgImg from '../../../assets/css/sliderrr.jpeg'
@@ -18,10 +18,7 @@ function Login() {
         }}>
         <Row>
           <Col>
-            {/* {user ? <Button onClick={() => setUser(!user)}>Goto Sign Up</Button>
-              : <Button onClick={() => setUser(!user)}>Goto Login</Button>
-            } */}
-
+           
             {user ? <>
               <div className='form-head'>
                 Login Page

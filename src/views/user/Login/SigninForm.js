@@ -3,7 +3,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { Button, Col, Row } from 'reactstrap';
 import { auth } from '../../../config/firebase'
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { ToastContainer, toast } from 'react-toastify';
 
 export default function SiginForm({ handlers }) {
@@ -12,16 +11,10 @@ export default function SiginForm({ handlers }) {
     const [user, setUser] = useState(null)
     const [username, setUsername] = useState(null)
 
-    const history = useHistory()
-
-
     const SignInsubmit = (e, values) => {
-        // console.log("email", values.email)
-        // console.log("name", values.name)
+        
         setUsername(values.name)
-        // console.log("number", values.number)
-        // console.log("password", values.password)
-
+        
         e.preventDefault();
         auth
             .createUserWithEmailAndPassword(values.email, values.password)
@@ -33,7 +26,6 @@ export default function SiginForm({ handlers }) {
 
               setTimeout(() => {
                 setFormKey(prev => (prev + 1)); // clear form
-                // history.push("./dashboad");
                 handlers()
               }, 1000); 
 
