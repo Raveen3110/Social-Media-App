@@ -3,22 +3,26 @@ import "react-toastify/dist/ReactToastify.css";
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { Button, Col, Row } from 'reactstrap';
 import { auth } from "../../../config/firebase";
+import { useHistory } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function LoginForm({ handler }) {
     const [formKey, setFormKey] = useState(1)
-
+    const history = useHistory()
     const Loginsubmit = (e, values) => {
         e.preventDefault();
-        console.log("object", values)
+        // console.log("email", values.email)
+        // console.log("password", values.password)
+
         auth
-            .createUserWithEmailAndPassword(values.number, values.password)
-            // .then((authUser) => {
-            //     authUser.user.updateProfile({
-            //         displayName: username
-            //     })
-            //     setFormKey(prev => (prev + 1)); // clear form
-            // })
-            .catch((error) => alert(error.message));
+            .signInWithEmailAndPassword(values.email, values.password)
+            .then(() => {
+                localStorage.setItem('LoginUserName',values.email)              
+                setFormKey(prev => (prev + 1)); // clear form
+                history.push('/dashboad')
+
+            })
+            .catch((error) => toast.error(error.message));
         //setFormKey(prev => (prev + 1)); //clear form
 
     }
@@ -29,12 +33,14 @@ export default function LoginForm({ handler }) {
     return (
         <>
             <Row>
+                <ToastContainer />
+
                 <Col className="pl-5" md={10} sm={12}>
                     <AvForm onValidSubmit={Loginsubmit} InVaildSumit={InVaildsubmit} key={String(formKey)}>
-                        <AvField name="name" label={<b>LOGIN ID<span className="color-red">*</span></b>} type="text" errorMessage="Please enter a name" validate={{
+                        <AvField name="email" label={<b>Email Id<span className="color-red">*</span></b>} type="text" errorMessage="Please enter a name" validate={{
                             required: { value: true }
                         }} />
-                        <AvField name="password" label={<b>PASSWORD<span className="color-red">*</span></b>} type="password" validate={{
+                        <AvField name="password" label={<b>Password<span className="color-red">*</span></b>} type="password" validate={{
                             required: { value: true, errorMessage: 'Please enter a password' },
                         }} />
                         <Button className="btn mt-4" type="submit" style={{ width: "100%" }}>Submit</Button>

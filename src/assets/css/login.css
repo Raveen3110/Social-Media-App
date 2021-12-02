@@ -153,3 +153,16 @@ width: 100px;
   font-size: 20px;
   font-weight: bold;
 }
+.header_button{
+ float:right;
+ font-size:24px ;
+}
+.post-modal-header{
+  font-size: 18px;
+  margin: auto;
+}
+.login-page{
+  position: relative;
+  right: "40%";
+  bottom:"39%";
+}
