@@ -18,23 +18,23 @@ function Login() {
         }}>
         <Row>
           <Col>
-            {user ? <Button onClick={() => setUser(!user)}>Goto Sign Up</Button>
+            {/* {user ? <Button onClick={() => setUser(!user)}>Goto Sign Up</Button>
               : <Button onClick={() => setUser(!user)}>Goto Login</Button>
-            }
+            } */}
 
             {user ? <>
               <div className='form-head'>
                 Login Page
               </div>
               <div className="innerpart">
-                <LoginForm />
+                <LoginForm handler={()=>setUser(!user)}/>
               </div></>
               : <>
                 <div className='form-head'>
                   Sign Up Page
                 </div>
                 <div className="innerpart-sign">
-                  <SiginForm />
+                  <SiginForm handlers={()=>setUser(!user)} />
                 </div>
               </>}
           </Col>
