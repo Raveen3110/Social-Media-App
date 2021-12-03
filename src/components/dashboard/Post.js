@@ -48,8 +48,7 @@ function Post({ postId, ...props }) {
                     src={props.img} />
                 <b style={{fontSize:"20px"}}>{props.username}</b>
             </div>
-            {/* image */}
-            {/* {props.img?<>Image</>:<>............................</>} */}
+         
             <img className='post-img' src={props.img} alt="image-posting" />
             {/* Username + caption */}
             <h4 className='post-text'>

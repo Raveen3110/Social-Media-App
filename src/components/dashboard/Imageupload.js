@@ -16,16 +16,6 @@ function Imageupload({ show, onHideModal }) {
     const LoginUserName =localStorage.getItem('LoginUserName')
     console.log("LoginUserName",LoginUserName)
 
-    // useEffect(() => {
-    //     const handleChange = (e) => {
-    //         if (e.target.files[0]) {
-    
-    //             console.log("object", e.target.files[0])
-    //             // setImage(e.target.files[0]);
-    //             setImg(e.target.files[0])
-    //         }
-    //     }
-    // }, [img])
     const handleChange = (e) => {
         if (e.target.files[0]) {
 
@@ -119,14 +109,6 @@ function Imageupload({ show, onHideModal }) {
                 </Button>
             </Modal.Footer>
         </Modal>
-        // <Modal >
-        //     <Modal.Body>
-        //         <progress value={progress} max={100} />
-        //         <input type="text" placeholder='Enter a caption...' onChange={(e) => setCaption(e.target.value)} />
-        //         <input type="file" onChange={(e) => handleChange(e)} />
-        //         <Button onClick={handleUpload}>Upload</Button>
-        //     </Modal.Body>
-        // </Modal>
     )
 }
 
