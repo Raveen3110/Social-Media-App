@@ -26,7 +26,7 @@ function App() {
             />
            
             <Route
-              path={`/dashboad`}
+              path={`/dashboard`}
               render={props => <DashboardMain />}
             />
         

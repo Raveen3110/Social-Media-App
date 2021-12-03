@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import logo from '../../assets/image/pinsterest.png'
+import InstagramEmbed from 'react-instagram-embed';
 import Post from './Post'
 import { auth, db } from '../../config/firebase'
 import bgImg from '../../assets/css/sliderrr.jpeg'
-import { Button } from 'reactstrap'
+import loader from '../../assets/image/balls_loading.gif'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Imageupload from './Imageupload'
 import { BsPlusSquare } from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
-import { BiMessageRoundedAdd } from "react-icons/bi";
-import { FaRegHeart } from "react-icons/fa";
-// import { Avatar } from '@mui/material'
+import { BiSearchAlt2 } from "react-icons/bi";
 import { Avatar } from '@material-ui/core'
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 
 
@@ -19,21 +19,11 @@ function Dashboad() {
     const history = useHistory()
     const [postModal, setPostModal] = useState(false)
 
-    const [post, setPost] = useState([
-        // {
-        //     img:"bgImg",
-        //     username:"Raveen Deep",
-        //     caption:"Wow its work Properly"
-        // }, {
-        //     img:"bgImg",
-        //     username:"Raveen Deep",
-        //     caption:"Wow its work Properly"
-        // }
-    ])
+
+    const [post, setPost] = useState([])
     const logout = () => {
         auth.signOut()
-        history.push("./")
-
+        history.push("/")
     }
     useEffect(() => {
         db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
@@ -51,31 +41,55 @@ function Dashboad() {
                         className='header_img'
                     />
                     <span className='header_button'>
-
-                        <span onClick={() => setPostModal(true)}><AiFillHome />  </span>
-                        <span onClick={() => setPostModal(true)}><BiMessageRoundedAdd />  </span>
-                        <FaRegHeart />
-
-                        <span onClick={() => setPostModal(true)}><BsPlusSquare />  </span>
-                        <Avatar
-                            className='post-avatar'
-                            // alt="avatar"
-                            // src={img}
-                             />
+                        <div className="input-group rounded">
+                            <input type="search" className="form-control rounded" style={{ marginTop: "8px", height: "34px" }} placeholder="Search" aria-label="Search"
+                                aria-describedby="search-addon" />
+                            <span className="input-group-text border-0" style={{ backgroundColor: "white", marginRight: "20px" }}>
+                                {/* <i className="fas fa-search"></i> */}
+                                <BiSearchAlt2 size={22} />
+                            </span>
+                        </div>
+                        <span className='x3x3' onClick={() => setPostModal(true)}><AiFillHome />  </span>
+                        <span className='x3x3' onClick={() => setPostModal(true)}><BsPlusSquare />  </span>
+                        <div className="mb-2" style={{ backgroundColor: "white", border: "none" }}>
+                            {['end'].map((direction) => (
+                                <DropdownButton style={{ backgroundColor: "white", border: "none" }}
+                                    key={direction}
+                                    drop={direction}
+                                    title={<Avatar className='post-avatar' />}>
+                                    <Dropdown.Item onClick={() => logout()}>Logout</Dropdown.Item>
+                                </DropdownButton>
+                            ))}
+                        </div>
                     </span>
                 </div>
             </div>
-
             <Imageupload show={postModal} onHideModal={setPostModal} />
+            <div className='dashboard-inner--lower'>
 
-            <div className='dashboard-inner--lower'> {console.log("postttt", post)}
+                {/* {console.log("postttt", post)} */}
                 {post.map(item => (
-                    <Post key={item.id} username={item.post.username} img={item.post.imageUrl} caption={item.post.caption} />
+                    <div style={{ padding: "20px" }}>
+                        {/* {console.log("item.post.id", item.id)} */}
+                        <Post key={item.id} postId={item.id} username={item.post.username} img={item.post.imageUrl} caption={item.post.caption} />
+
+                    </div>
                 ))}
-                <Button className="btn mt-4" type="submit"
-                    style={{ width: "100%", backgroundColor: "orange", border: "none" }}
-                    onClick={() => logout()}
-                >logOut</Button>
+
+
+                <InstagramEmbed
+                    url='https://www.instagram.com/p/B_uf9dmAGPw/'
+                    // clientAccessToken='utm_source=ig|web_copy_link'
+                    maxWidth={320}
+                    hideCaption={false}
+                    containerTagName='div'
+                    protocol=''
+                    injectScript
+                    onLoading={() => { }}
+                    onSuccess={() => { }}
+                    onAfterRender={() => { }}
+                    onFailure={() => { }}
+                />
             </div>
         </div>
     )

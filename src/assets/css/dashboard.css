@@ -10,9 +10,10 @@
 }
 
 .dashboard-inner--lower {
-    padding-top: 100px;
+    padding-top: 70px;
     padding-right: 20%;
-    padding-left: 20%;
+    padding-left: 30%;
+    
 }
 
 .header {
@@ -38,6 +39,7 @@
 
 .post {
     max-width: 500px;
+    /* width: 100% !important; */
     background-color: white;
     border: 1px solid lightgrey;
     border-radius: 3px;

@@ -19,7 +19,7 @@ export default function LoginForm({ handler }) {
             .then(() => {
                 localStorage.setItem('LoginUserName',values.email)              
                 setFormKey(prev => (prev + 1)); // clear form
-                history.push('/dashboad')
+                history.push('/dashboard')
 
             })
             .catch((error) => toast.error(error.message));
@@ -43,8 +43,8 @@ export default function LoginForm({ handler }) {
                         <AvField name="password" label={<b>Password<span className="color-red">*</span></b>} type="password" validate={{
                             required: { value: true, errorMessage: 'Please enter a password' },
                         }} />
-                        <Button className="btn mt-4" type="submit" style={{ width: "100%" }}>Submit</Button>
-                        <div>Don't have an account ? <span style={{ color: "blue", textDecoration: "underline" }} onClick={() => handler()}>Register</span></div>
+                        <Button className="btn mt-4" type="submit" style={{ width: "100%",backgroundColor: "orange",border:"none" }}>Submit</Button>
+                        <div className="mt-2">Don't have an account ? <span style={{ color: "blue", textDecoration: "underline" }} onClick={() => handler()}>Register</span></div>
                     </AvForm>
                 </Col>
             </Row>

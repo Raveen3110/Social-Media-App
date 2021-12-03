@@ -2,45 +2,36 @@ body {
   margin: 0 auto;
   height: 100%;
 }
+
 * {
   margin: 0px;
 }
+
 .App {
   text-align: center;
 }
+
 .loginbtn {
   color: #282c34;
 }
+
 .icon1 {
   position: absolute;
   left: 70px;
 }
-.color-red{
-  color:red;
+
+.color-red {
+  color: red;
 }
-.innerpart {
-  width: 850px;
-  height: 400px;
-  max-width:2000px;
-  /* min-height: 129px; */
-  background-color: white;
-  border-radius: 0.3rem;
-  /* margin: 74px auto; */
-  padding: 70px;
-}
-.innerpart-sign{
-  width: 850px;
-  height: 560px;
-  max-width:2000px;
-  /* min-height: 129px; */
-  background-color: white;
-  border-radius: 0.3rem;
-  /* margin: 74px auto; */
-  padding: 50px;
-}
+
+
+
+
+
 .input-password {
   padding-left: 35px !important;
 }
+
 .color {
   background-color: #f88e02 !important;
   border: 0;
@@ -49,21 +40,25 @@ body {
 .forcolor {
   background-color: #535353;
 }
+
 .mainheight {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100vh;
-  /* background-color: #535353; */ 
-} 
+  /* background-color: #535353; */
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 .inputss {
   position: relative;
 }
+
 .icon {
   position: absolute;
   top: 10px;
@@ -72,16 +67,20 @@ body {
     left: 270px; */
   color: #575451;
 }
+
 .inputlogin {
   width: 30%;
 }
+
 .btn-colorcss {
   color: #f99c02;
 }
+
 .foricon {
   position: absolute;
   left: 20px;
 }
+
 .input-field {
   width: 100%;
   padding: 10px;
@@ -91,23 +90,27 @@ body {
 .giveheight {
   height: 40px;
 }
+
 .input-icons {
   width: 100%;
   margin-bottom: 10px;
 }
+
 .forleft {
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
   border-right: 1px solid #b1a2a2;
   /* padding-left:  50px;  */
   /* margin-top: 0px; */
 }
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 .App-header {
   background-color: #54585b;
   min-height: 100vh;
@@ -118,51 +121,154 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
 .App-link {
   color: #61dafb;
 }
-.rightside-img{
+
+.rightside-img {
   margin-left: 20px;
 }
+
 @media only screen and (max-width: 800px) {
   .rightside-img {
     display: none;
   }
+
   .forleft {
     border-right: none;
     padding: 0px;
   }
+
   .col-md-6 {
     flex: none;
     max-width: none;
   }
-  .innerpart{
-    padding:50px;
+
+  .innerpart {
+    padding: 50px;
     /* wi */
   }
+ 
 }
-@media only screen and (min-width: 400px){
-  /* .innerpart{
-width: 100px;
-  } */
+
+@media only screen and (min-width: 1024px) {
+  .innerpart {
+    width: 850px;
+    height: 400px;
+    max-width: 2000px;
+    background-color: white;
+    border-radius: 0.3rem;
+    padding: 70px;
+  }
+  .innerpart-sign {
+    width: 850px;
+    height: 560px;
+    max-width: 2000px;
+    background-color: white;
+    border-radius: 0.3rem;
+    padding: 50px;
+  }
 }
-.form-head{
+@media only screen and (max-width: 1023px)
+{
+  .innerpart-sign {
+    width: 500px;
+    height: 560px;
+    max-width: 2000px;
+    background-color: white;
+    border-radius: 0.3rem;
+    padding: 40px;
+  }
+}
+/* @media only screen and (min-width: 400px) {
+  .innerpart {
+    background-color: white;
+
+  }
+} */
+
+.form-head {
   justify-content: center;
   display: flex;
-  color:white;
+  color: white;
   font-size: 20px;
   font-weight: bold;
 }
-.header_button{
- float:right;
- font-size:24px ;
+
+.header_button {
+  display: flex;
+  flex-direction: row;
+  float: right;
+  font-size: 24px;
 }
-.post-modal-header{
+.innerpart-sign {
+ 
+  background-color: white;
+  border-radius: 0.3rem;
+}
+.innerpart {
+  background-color: white;
+  border-radius: 0.3rem;
+}
+.post-modal-header {
   font-size: 18px;
   margin: auto;
 }
-.login-page{
+
+.login-page {
   position: relative;
   right: "40%";
-  bottom:"39%";
+  bottom: "39%";
+}
+
+.x3x3 {
+  margin-right: 30px;
+  margin-top: 10px;
+
+}
+
+.dropdown .item {
+  display: none;
+}
+
+.dropdown:hover .item {
+  display: block;
+}
+
+.btn-primary {
+  background-color: white !important;
+  border: none !important;
+  height: 40px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 0%) !important;
+}
+
+.post-button {
+  flex: 0;
+  /* border-top: 1px solid lightgrey; */
+
+}
+
+.post-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+}
+
+.comments-part {
+  border-top: 1px solid lightgrey;
+
+}
+
+.post-comment {
+  padding-left: 19px;
+  font-size: 14px;
 }

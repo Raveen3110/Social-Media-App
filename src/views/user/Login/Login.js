@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Col, Row } from 'reactstrap'
 import LoginForm from './LoginForm'
 import SiginForm from './SigninForm'
-import bgImg from '../../../assets/css/sliderrr.jpeg'
+import bgImg from '../../../assets/image/Backgroung.png'
 import ReactPracticles from '../../../common/ReactPracticles'
 
 function Login() {
@@ -12,10 +12,9 @@ function Login() {
     <>
       <div className="container-fluid mainheight p-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),url(${bgImg})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),url(${bgImg})`,
           backgroundSize: "cover",
           height: "100vh",
-          position:"relative"
         }}>
         <Row>
           <Col>

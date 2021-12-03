@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@material-ui/core'
 import dragImg from '../../assets/image/Drag.png'
 import { storage, db } from '../../config/firebase'
@@ -13,13 +13,26 @@ function Imageupload({ show, onHideModal }) {
     const [progress, setProgress] = useState("")
     const [caption, setCaption] = useState("")
     const [progressShow, setProgressShow] = useState(false)
+    const LoginUserName =localStorage.getItem('LoginUserName')
+    console.log("LoginUserName",LoginUserName)
 
+    // useEffect(() => {
+    //     const handleChange = (e) => {
+    //         if (e.target.files[0]) {
+    
+    //             console.log("object", e.target.files[0])
+    //             // setImage(e.target.files[0]);
+    //             setImg(e.target.files[0])
+    //         }
+    //     }
+    // }, [img])
     const handleChange = (e) => {
         if (e.target.files[0]) {
 
-            console.log("object", e.target.files[0].name)
+            console.log("object", e.target.files[0])
             setImage(e.target.files[0]);
-            setImg(e.target.files[0].name)
+            // setImg(e.target.files[0])
+            // console.log("image",img)
         }
     }
     const handleUpload = () => {
@@ -51,16 +64,26 @@ function Imageupload({ show, onHideModal }) {
                             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                             caption: caption,
                             imageUrl: url,
-                            username: "Sample Name"
+                            username: LoginUserName
                         });
                         setProgress(0);
                         setCaption("");
                         setImage(null);
+                        setImg(dragImg);
                         setProgressShow(false)
                         onHideModal()
                     })
             }
         )
+    }
+    const modalclosed = () => {
+
+        setProgress(0);
+        setCaption("");
+        setImage(null);
+        setImg(dragImg);
+        setProgressShow(false)
+        onHideModal()
     }
     return (
         <Modal show={show} onHide={onHideModal}>
@@ -68,15 +91,12 @@ function Imageupload({ show, onHideModal }) {
                 <span className="d-flex post-modal-header">
                     <b>Create new post</b>
                 </span>
-                {/* <Button type="button" onClick={() => onHideModal()} className="btn-close"
-                    data-bs-dismiss="modal" aria-label="Close"></Button> */}
             </Modal.Header>
             <Modal.Body className='modal_body'>
-                {/* <input type="text" placeholder='Enter a caption...' onChange={(e) => setCaption(e.target.value)} /> */}
-
 
                 <div className="upload-btn-wrapper" style={{ marginLeft: "32px", marginTop: "10px" }} >
                     <div className="rectangle">
+                        {/* {console.log("Imageee",img.name)} */}
                         <img src={img} height="200px" alt="profile" style={{ marginTop: "4px" }} />
                     </div>
                     <form>
@@ -84,30 +104,14 @@ function Imageupload({ show, onHideModal }) {
                     </form>
                 </div>
                 <div >
-                    <div class="md-form">
+                    <div className="md-form">
                         <textarea onChange={(e) => setCaption(e.target.value)} placeholder='Write a caption...' className="md-textarea form-control mt-4" rows="2"></textarea>
                     </div>
-                    
-                   {progressShow? <ProgressBar animated now={progress} className='mt-3'/>:<></>}
-                    
+                    {progressShow ? <ProgressBar animated now={progress} className='mt-3' /> : <></>}
                 </div>
-
-                {/* <img src={dragImg} height="250px" />
-                <input className="img-btn" type="file" onChange={(e) => handleChange(e)} />
-                <div >
-                    <div class="md-form">
-                        <textarea id="form7" placeholder='Enter a caption...' class="md-textarea form-control" rows="2"></textarea>
-                    </div>
-
-                    <progress value={progress} max={100} style={{ width: "100%", marginTop: "10px" }} />
-                </div> */}
-
-
-
-                {/* <Button onClick={handleUpload}>Upload</Button> */}
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={() => onHideModal()}>
+                <Button variant="secondary" onClick={() => modalclosed()}>
                     Cancel
                 </Button>
                 <Button variant="primary" onClick={() => handleUpload()}>

@@ -82,7 +82,7 @@ export default function SiginForm({ handlers }) {
                         <Button className="btn mt-4" type="submit"
                             style={{ width: "100%", backgroundColor: "orange", border: "none" }}
                         >Register</Button>
-                        <div>Already have an account ? <span style={{ color: "blue", textDecoration: "underline" }} onClick={() => handlers()}>Login</span></div>
+                        <div className="mt-2">Already have an account ? <span style={{ color: "blue", textDecoration: "underline" }} onClick={() => handlers()}>Login</span></div>
                     </AvForm>
                 </Col>
             </Row>
