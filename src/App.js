@@ -18,6 +18,7 @@ function App() {
 
     <>
       <Suspense fallback={<div className="loading" />}>
+        
         <Router>
           <Switch>
             <Route exact

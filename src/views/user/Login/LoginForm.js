@@ -11,10 +11,7 @@ export default function LoginForm({ handler }) {
     const history = useHistory()
     const Loginsubmit = (e, values) => {
         e.preventDefault();
-        // console.log("email", values.email)
-        // console.log("password", values.password)
-
-        auth
+            auth
             .signInWithEmailAndPassword(values.email, values.password)
             .then(() => {
                 localStorage.setItem('LoginUserName',values.email)              
@@ -44,7 +41,7 @@ export default function LoginForm({ handler }) {
                             required: { value: true, errorMessage: 'Please enter a password' },
                         }} />
                         <Button className="btn mt-4" type="submit" style={{ width: "100%",backgroundColor: "orange",border:"none" }}>Submit</Button>
-                        <div className="mt-2">Don't have an account ? <span style={{ color: "blue", textDecoration: "underline" }} onClick={() => handler()}>Register</span></div>
+                        <div className="mt-2">Don't have an account ? <span style={{ color: "blue", textDecoration: "underline",cursor:"pointer" }} onClick={() => handler()}>Register</span></div>
                     </AvForm>
                 </Col>
             </Row>

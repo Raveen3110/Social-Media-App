@@ -45,14 +45,11 @@ export default function SiginForm({ handlers }) {
                     return authUser.updateProfile({
                         displayName: username,
                     })
-
                 }
             } else {
                 console.log("object")
-
             }
         })
-
         return () => {
             // clean up action
             unsubcribe();
@@ -72,6 +69,8 @@ export default function SiginForm({ handlers }) {
                         }} />
                         <AvField name="number" label={<b>Mobile No.<span className="color-red">*</span></b>} type="number" errorMessage="Please enter a number" validate={{
                             required: { value: true },
+                            minLength: {value: 10},
+                            maxLength: {value: 10}
                         }} />
                         <AvField name="email" label={<b>Email ID<span className="color-red">*</span></b>} type="email" errorMessage="Please enter a email" validate={{
                             required: { value: true },
@@ -82,7 +81,7 @@ export default function SiginForm({ handlers }) {
                         <Button className="btn mt-4" type="submit"
                             style={{ width: "100%", backgroundColor: "orange", border: "none" }}
                         >Register</Button>
-                        <div className="mt-2">Already have an account ? <span style={{ color: "blue", textDecoration: "underline" }} onClick={() => handlers()}>Login</span></div>
+                        <div className="mt-2">Already have an account ? <span style={{ color: "blue", textDecoration: "underline",cursor:"pointer"}} onClick={() => handlers()}>Login</span></div>
                     </AvForm>
                 </Col>
             </Row>

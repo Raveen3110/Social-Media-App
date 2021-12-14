@@ -18,7 +18,7 @@ function Login() {
         }}>
         <Row>
           <Col>
-          {/* <ReactPracticles/> */}
+            {/* <ReactPracticles/> */}
             {user ? <div className='login-page'>
               <div className='form-head'>
                 Login Page
@@ -37,7 +37,7 @@ function Login() {
           </Col>
         </Row>
       </div>
-      
+
     </>
   )
 }
