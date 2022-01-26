@@ -12,7 +12,8 @@ function Login() {
     <>
       <div className="container-fluid mainheight p-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),url(${bgImg})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),url(${bgImg})`,
+          backgroundColor:"#D2D6DE",
           backgroundSize: "cover",
           height: "100vh",
         }}>

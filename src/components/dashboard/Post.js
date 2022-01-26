@@ -70,10 +70,10 @@ function Post({ postId, ...props }) {
                     onChange={(e) => setAddComment(e.target.value)}
                     className="post-input"
                 />
-                {console.log("object", addcomment)}
+                {/* {console.log("object", addcomment)} */}
                 <Button disabled={!addcomment}
                     type="submit"
-                    onClick={postcomment}
+                    // onClick={postcomment}
                     className="post-button" style={{ color: "#6082a3" }} onClick={(e) => postcomment(e)}>
                     Post
                 </Button>
